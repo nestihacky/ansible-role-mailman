@@ -1,0 +1,5 @@
+---
+
+mailman_admin: admin@example.org
+mailman_domain: lists.example.org
+mailman_password: CHANGE_ME
