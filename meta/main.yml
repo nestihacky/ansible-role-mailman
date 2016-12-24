@@ -17,8 +17,9 @@ galaxy_info:
    - system
 
 dependencies:
-  - role: nestihacky.apache
-  - role: nestihacky.mailserver
-    postfix_alias_maps_append: ', hash:/etc/mailman/aliases'
-    postfix_local_recipient_maps_append: ', $alias_maps'
-    postfix_mydestination_append: ', $mydomain, lists.$mydomain'
+   - role: nestihacky.apache
+   - role: nestihacky.mailserver
+  # FIXME: these need to be put to group_vars or host_vars as dep resolution is b0rken
+  #    postfix_alias_maps_append: ', hash:/etc/mailman/aliases'
+  #    postfix_local_recipient_maps_append: ', $alias_maps'
+  #    postfix_mydestination_append: ', $mydomain, lists.$mydomain'
