@@ -1,6 +1,6 @@
 <VirtualHost *:80>
   ServerName {{ mailman_domain }}
-  Include conf.d/mailman.conf
+  Redirect permanent / https://{{ mailman_domain }}/
 </VirtualHost>
 
 Listen {{ mailman_ssl_listen }} ssl
