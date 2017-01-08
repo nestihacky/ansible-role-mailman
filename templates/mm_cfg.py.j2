@@ -8,6 +8,7 @@ MAILMAN_GID = grp.getgrnam('mailman')[2]
 
 DEFAULT_URL_HOST   = '{{ mailman_domain }}'
 DEFAULT_EMAIL_HOST = '{{ mailman_domain }}'
+DEFAULT_URL_PATTERN = 'https://%s/mailman/'
 
 add_virtualhost(DEFAULT_URL_HOST, DEFAULT_EMAIL_HOST)
 
