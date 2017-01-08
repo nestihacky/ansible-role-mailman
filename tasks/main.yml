@@ -16,6 +16,20 @@
     owner=root group=root mode=0644
   notify: reload apache
 
+- name: /etc/httpd/conf.d/lists.conf (vhost)
+  template:
+    src=lists.conf.j2
+    dest=/etc/httpd/conf.d/lists.conf
+    owner=root group=root mode=0644
+  notify: reload apache
+
+- seport:
+    ports: "{{ mailman_ssl_listen }}"
+    proto: tcp
+    setype: http_port_t
+    state: present
+  when: common_selinux
+
 - name: set site password
   command: /usr/lib/mailman/bin/mmsitepass {{ mailman_password }}
   no_log: true
